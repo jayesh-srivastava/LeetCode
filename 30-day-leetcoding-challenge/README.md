@@ -1,2 +1,3 @@
-# 30 Day leetcoding pratices
-Coding practices on Leetcodesdkcnkdsjnc,nckdsbcksdc
+## 30 Day leetcoding pratices
+
+
