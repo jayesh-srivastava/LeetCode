@@ -1,36 +1,33 @@
 package SingleNumber;
 import java.util.*;
+import java.lang.*;
 class Solution
 {
-    public static void main(String[] args) {
-
-
-        int [] arr = new int [] {1, 2, 8, 3, 2, 2, 2, 5, 1};
-        //Array fr will store frequencies of element
-        int [] fr = new int [arr.length];
-        int visited = -1;
-
-        for(int i = 0; i < arr.length; i++){
-            int count = 1;
-            for(int j = i+1; j < arr.length; j++){
-                if(arr[i] == arr[j]){
-                    count++;
-                    //To avoid counting same element again
-                    fr[j] = visited;
-                }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int arr[]= new int [5];
+        for(int x=0;x<=4;x++)
+        {
+            arr[x]=sc.nextInt();
+        }
+        Arrays.sort(arr);
+        Map<Integer,Integer> mp= new HashMap<>();
+        for(int x=0;x<=4;x++) {
+            if (mp.containsKey(arr[x])) {
+                mp.put(arr[x], mp.get(arr[x])+1);
+            } else {
+                mp.put(arr[x], 1);
             }
-            if(fr[i] != visited)
-                fr[i] = count;
+        }
+        for (Map.Entry<Integer, Integer> entry : mp.entrySet())
+        {
+            if(entry.getValue()==1)
+            {
+                System.out.println(entry.getKey());
+                System.exit(0);
+            }
         }
 
-        //Displays the frequency of each element present in array
-        System.out.println("---------------------");
-        System.out.println(" Element | Frequency");
-        System.out.println("---------------------");
-        for(int i = 0; i < fr.length; i++){
-            if(fr[i] != visited)
-                System.out.println("    " + arr[i] + "    |    " + fr[i]);
-        }
-        System.out.println("---------------------");
     }
 }
