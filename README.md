@@ -1,2 +1,1 @@
-
-Coding practices on Leetcode.
+# Coding practices on Leetcode.
