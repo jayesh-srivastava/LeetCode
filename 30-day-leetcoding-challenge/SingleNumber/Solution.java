@@ -1,33 +1,30 @@
 package SingleNumber;
 import java.util.*;
-import java.lang.*;
 class Solution
 {
-    public static void main(String[] args)
+    public int singleNumber(int[] nums)
     {
-        Scanner sc=new Scanner(System.in);
-        int arr[]= new int [5];
-        for(int x=0;x<=4;x++)
-        {
-            arr[x]=sc.nextInt();
-        }
-        Arrays.sort(arr);
+        int l=nums.length;
+        Arrays.sort(nums);
+        int r=0;
         Map<Integer,Integer> mp= new HashMap<>();
-        for(int x=0;x<=4;x++) {
-            if (mp.containsKey(arr[x])) {
-                mp.put(arr[x], mp.get(arr[x])+1);
-            } else {
-                mp.put(arr[x], 1);
+        for(int x=0;x<l;x++)
+        {
+            if (mp.containsKey(nums[x]))
+            {
+                mp.put(nums[x], mp.get(nums[x])+1);
+            } else
+            {
+                mp.put(nums[x], 1);
             }
         }
         for (Map.Entry<Integer, Integer> entry : mp.entrySet())
         {
             if(entry.getValue()==1)
             {
-                System.out.println(entry.getKey());
-                System.exit(0);
+                r=entry.getKey();
             }
         }
-
+        return r;
     }
-}
+
