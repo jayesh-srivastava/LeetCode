@@ -4,9 +4,10 @@ class Solution
     {
         Map<Integer, Integer> map = new HashMap<>();
         int arr[]=new int[2];
-    for (int i = 0; i < nums.length; i++) {
-        map.put(nums[i], i);
-    }
+        for (int i = 0; i < nums.length; i++)
+        {
+            map.put(nums[i], i);
+        }
     for (int i = 0; i < nums.length; i++) {
         int complement = target - nums[i];
         if (map.containsKey(complement) && map.get(complement) != i) {
